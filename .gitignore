@@ -94,3 +94,6 @@ lib/
 metastore_db
 
 plugin/updater_gpu/test/cpp/data
+
+#tests
+*.dm
