@@ -20,4 +20,4 @@ make
 cd python-package; sudo python setup.py install
 
 #test
-python tests/benchmark/benchmark.py
+python ../tests/benchmark/benchmark.py
