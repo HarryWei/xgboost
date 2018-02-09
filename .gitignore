@@ -97,3 +97,7 @@ plugin/updater_gpu/test/cpp/data
 
 #tests
 *.dm
+demo/binary_classification/*.txt
+demo/guide-python/*.txt
+demo/yearpredMSD/*.txt
+demo/yearpredMSD/*.zip
