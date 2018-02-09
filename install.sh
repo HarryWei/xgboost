@@ -12,7 +12,7 @@ sudo pip install scikit-learn
 
 #build
 cd ~
-git clone --recursive https://github.com/xiaoweishang/xgboost
+#git clone --recursive https://github.com/xiaoweishang/xgboost
 cd $XGBOOST_HOME
 make
 
