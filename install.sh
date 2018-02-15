@@ -12,8 +12,10 @@ sudo apt-get install python-dev
 sudo pip install scikit-learn
 
 #build
+cd ../
+CURRENT_DIR=`pwd`
 cd ~
-#git clone --recursive https://github.com/xiaoweishang/xgboost
+git clone --recursive https://github.com/xiaoweishang/xgboost
 cd $XGBOOST_HOME
 make
 
@@ -22,3 +24,9 @@ cd python-package; sudo python setup.py install
 
 #test
 python ../tests/benchmark/benchmark.py
+
+#recovery dir
+cd $CURRENT_DIR
+mv $XGBOOST_HOME ./
+cd xgboost
+XGBOOST_HOME=`pwd`
