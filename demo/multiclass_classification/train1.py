@@ -29,11 +29,11 @@ param['objective'] = 'multi:softmax'
 param['eta'] = 0.1
 param['max_depth'] = 6
 param['silent'] = 1
-param['nthread'] = 4
+param['nthread'] = 1
 param['num_class'] = 6
 
 watchlist = [(xg_train, 'train'), (xg_test, 'test')]
-num_round = 5
+num_round = 5000
 bst = xgb.train(param, xg_train, num_round, watchlist)
 # get prediction
 pred = bst.predict(xg_test)
