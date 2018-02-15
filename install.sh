@@ -1,4 +1,5 @@
 #!/bin/bash
+# Xiaowei Shang <xs225@njit.edu> (bash) 2018
 
 #build and install xgboost on Ubuntu
 XGBOOST_HOME=~/xgboost
