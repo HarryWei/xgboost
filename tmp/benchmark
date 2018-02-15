@@ -1,0 +1,44 @@
+[06:47:25] 250000x50 matrix with 12500000 entries loaded from dtest.dm
+[06:47:25] 750000x50 matrix with 37500000 entries loaded from dtrain.dm
+Training with 'gpu_hist'
+[06:47:25] dmlc-core/include/dmlc/./logging.h:300: [06:47:25] src/learner.cc:153: XGBoost version not compiled with GPU support.
+
+Stack trace returned 10 entries:
+[bt] (0) /usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/libxgboost.so(_ZN4dmlc15LogMessageFatalD1Ev+0x3c) [0x7f228ef9600c]
+[bt] (1) /usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/libxgboost.so(_ZN7xgboost11LearnerImpl17ConfigureUpdatersEv+0x112) [0x7f228efa0fb2]
+[bt] (2) /usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/libxgboost.so(_ZN7xgboost11LearnerImpl9ConfigureERKSt6vectorISt4pairISsSsESaIS3_EE+0x467) [0x7f228efa34d7]
+[bt] (3) /usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/libxgboost.so(XGBoosterUpdateOneIter+0x5e) [0x7f228efaa01e]
+[bt] (4) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call_unix64+0x4c) [0x7f22a0674adc]
+[bt] (5) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call+0x1fc) [0x7f22a067440c]
+[bt] (6) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(_ctypes_callproc+0x48e) [0x7f22a088b5fe]
+[bt] (7) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(+0x15f9e) [0x7f22a088cf9e]
+[bt] (8) python(PyEval_EvalFrameEx+0x965) [0x4c84a5]
+[bt] (9) python(PyEval_EvalCodeEx+0x2ac) [0x4cfedc]
+
+Traceback (most recent call last):
+  File "tests/benchmark/benchmark.py", line 65, in <module>
+    run_benchmark(args)
+  File "tests/benchmark/benchmark.py", line 52, in run_benchmark
+    xgb.train(param, dtrain, args.iterations, evals=[(dtest, "test")])
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/training.py", line 204, in train
+    xgb_model=xgb_model, callbacks=callbacks)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/training.py", line 74, in _train_internal
+    bst.update(dtrain, i, obj)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/core.py", line 898, in update
+    dtrain.handle))
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/core.py", line 130, in _check_call
+    raise XGBoostError(_LIB.XGBGetLastError())
+xgboost.core.XGBoostError: [06:47:25] src/learner.cc:153: XGBoost version not compiled with GPU support.
+
+Stack trace returned 10 entries:
+[bt] (0) /usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/libxgboost.so(_ZN4dmlc15LogMessageFatalD1Ev+0x3c) [0x7f228ef9600c]
+[bt] (1) /usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/libxgboost.so(_ZN7xgboost11LearnerImpl17ConfigureUpdatersEv+0x112) [0x7f228efa0fb2]
+[bt] (2) /usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/libxgboost.so(_ZN7xgboost11LearnerImpl9ConfigureERKSt6vectorISt4pairISsSsESaIS3_EE+0x467) [0x7f228efa34d7]
+[bt] (3) /usr/local/lib/python2.7/dist-packages/xgboost-0.7-py2.7.egg/xgboost/libxgboost.so(XGBoosterUpdateOneIter+0x5e) [0x7f228efaa01e]
+[bt] (4) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call_unix64+0x4c) [0x7f22a0674adc]
+[bt] (5) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call+0x1fc) [0x7f22a067440c]
+[bt] (6) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(_ctypes_callproc+0x48e) [0x7f22a088b5fe]
+[bt] (7) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(+0x15f9e) [0x7f22a088cf9e]
+[bt] (8) python(PyEval_EvalFrameEx+0x965) [0x4c84a5]
+[bt] (9) python(PyEval_EvalCodeEx+0x2ac) [0x4cfedc]
+
