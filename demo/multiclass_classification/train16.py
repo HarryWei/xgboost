@@ -29,7 +29,7 @@ param['objective'] = 'multi:softmax'
 param['eta'] = 0.1
 param['max_depth'] = 6
 param['silent'] = 1
-param['nthread'] = 1
+param['nthread'] = 16
 param['num_class'] = 6
 
 watchlist = [(xg_train, 'train'), (xg_test, 'test')]
